@@ -43,11 +43,13 @@ public class PlayerController : MonoBehaviour {
 			//raycast downword and hit the nearest block.
 			RaycastHit2D hitInfo = Physics2D.Raycast(raycastStartPos, Vector3.down, 1.4f);
 			//get the x-pos of the block
+			if(hitInfo.collider != null){
 			float newX=hitInfo.collider.transform.position.x;
-			Debug.Log("newX:"+newX);
-			Vector3 playerPos=transform.position;
-			playerPos.x=newX;
-			transform.position=playerPos;
+				Debug.Log("newX:"+newX);
+				Vector3 playerPos=transform.position;
+				playerPos.x=newX;
+				transform.position=playerPos;
+			}
 
 
 		} else if (Input.GetKey (KeyCode.A) && transform.position.x >= leftWall) {
