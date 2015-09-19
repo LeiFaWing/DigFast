@@ -10,7 +10,7 @@ public class Manager : MonoBehaviour {
 
 	public float spacing;
 	GameObject player;
-	PlayerController pc;
+	//PlayerController pc;
 	int previousy;
 
 	// Use this for initialization
@@ -28,9 +28,9 @@ public class Manager : MonoBehaviour {
 			}
 		}
 
-		player = GameObject.Find ("Player");
-		pc = player.GetComponent<PlayerController> ();
-		previousy = (int) player.transform.position.y;
+		//player = GameObject.Find ("Player");
+		//pc = player.GetComponent<PlayerController> ();
+		//previousy = (int) player.transform.position.y;
 	}
 	
 	// Update is called once per frame
