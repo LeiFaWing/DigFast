@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BlockController : MonoBehaviour {
 
-	public int health = 5;
+	public double health = 5;
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +17,7 @@ public class BlockController : MonoBehaviour {
 		}
 	}
 
-	void applyDamage(int damage) {
+	void applyDamage(double damage) {
 		health -= damage;
 	}
 	
