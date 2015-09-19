@@ -35,6 +35,21 @@ public class PlayerController : MonoBehaviour {
 
             transform.Translate (Vector3.down * speed * Time.deltaTime);
 			direction = "down";
+
+			//fix player to grid, so you can't dig between blocks
+			//raycast to see which block is underneath the player
+			Vector3 raycastStartPos=transform.position;
+			raycastStartPos.y -= 0.4f; //lower the starting point into the buttomCollision digger detector
+			//raycast downword and hit the nearest block.
+			RaycastHit2D hitInfo = Physics2D.Raycast(raycastStartPos, Vector3.down, 1.4f);
+			//get the x-pos of the block
+			float newX=hitInfo.collider.transform.position.x;
+			Debug.Log("newX:"+newX);
+			Vector3 playerPos=transform.position;
+			playerPos.x=newX;
+			transform.position=playerPos;
+
+
 		} else if (Input.GetKey (KeyCode.A) && transform.position.x >= leftWall) {
 //			movementDirection = new Vector3(-1, 0, 0);
 //			Vector3 newPos = transform.position + movementDirection;
@@ -52,5 +67,6 @@ public class PlayerController : MonoBehaviour {
 		} else {
 			direction = "neutral";
 		}
+
 	}
 }
