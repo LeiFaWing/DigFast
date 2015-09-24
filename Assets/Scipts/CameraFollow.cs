@@ -18,36 +18,37 @@ public class CameraFollow : MonoBehaviour {
 
 	void LateUpdate() {
 
+		if (player != null) {
 		
-		//remove jitter by following the player closely, instead of exactly
+			//remove jitter by following the player closely, instead of exactly
 
-		//follow distance in unity units
-		float followDistance = 0.1f;
+			//follow distance in unity units
+			float followDistance = 0.1f;
 
-		//this is where the camera would go if it were tracking the player exactly
-		Vector3 playerPos = player.transform.position + offset;
+			//this is where the camera would go if it were tracking the player exactly
+			Vector3 playerPos = player.transform.position + offset;
 
-		Vector3 newPos = transform.position; //start at current camera position
+			Vector3 newPos = transform.position; //start at current camera position
 		
-		//if player is off-center to left
-		if (playerPos.x < newPos.x - followDistance) {
-			newPos.x = playerPos.x+followDistance;
-		}
-		//if player is off-center to right
-		if (playerPos.x > newPos.x + followDistance) {
-			newPos.x = playerPos.x-followDistance;
-		}
-		//if player is off-center downward
-		if (playerPos.y < newPos.y - followDistance) {
-			newPos.y = playerPos.y+followDistance;
-		}
-		//if player is off-center upward
-		if (playerPos.y > newPos.y + followDistance) {
-			newPos.y = playerPos.y-followDistance;
-		}
+			//if player is off-center to left
+			if (playerPos.x < newPos.x - followDistance) {
+				newPos.x = playerPos.x + followDistance;
+			}
+			//if player is off-center to right
+			if (playerPos.x > newPos.x + followDistance) {
+				newPos.x = playerPos.x - followDistance;
+			}
+			//if player is off-center downward
+			if (playerPos.y < newPos.y - followDistance) {
+				newPos.y = playerPos.y + followDistance;
+			}
+			//if player is off-center upward
+			if (playerPos.y > newPos.y + followDistance) {
+				newPos.y = playerPos.y - followDistance;
+			}
 
-		transform.position = newPos;
+			transform.position = newPos;
 
-
+		}
 	}
 }

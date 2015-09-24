@@ -18,6 +18,7 @@ public class Manager : MonoBehaviour {
 
 		GameObject[] blocks = {block1, block2};
 
+		// create blocks
 		for (int i = -4; i < 5; i++) {
 			for (int j = 0; j > -100; j--) {
 				// space out blocks properly
