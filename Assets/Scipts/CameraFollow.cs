@@ -18,6 +18,7 @@ public class CameraFollow : MonoBehaviour {
 
 	void LateUpdate() {
 
+		// if player is alive
 		if (player != null) {
 		
 			//remove jitter by following the player closely, instead of exactly
@@ -50,5 +51,6 @@ public class CameraFollow : MonoBehaviour {
 			transform.position = newPos;
 
 		}
+
 	}
 }

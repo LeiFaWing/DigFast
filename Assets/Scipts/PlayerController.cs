@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
 //	public float gridY;
 	public float leftWall;
 	public float rightWall;
+	public GameObject loseScreen;
 
 	// Use this for initialization
 	void Start () {
@@ -70,5 +71,10 @@ public class PlayerController : MonoBehaviour {
 			direction = "neutral";
 		}
 
+	}
+
+	void gameOver() {
+		Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -2);
+		Instantiate(loseScreen, pos, Quaternion.identity);
 	}
 }

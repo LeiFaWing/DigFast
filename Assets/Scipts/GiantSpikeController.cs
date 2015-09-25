@@ -17,6 +17,7 @@ public class GiantSpikeController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col.gameObject.tag == "Player") {
+			col.gameObject.SendMessage("gameOver");
 			Destroy(col.gameObject);
 		}
 	}
