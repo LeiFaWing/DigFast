@@ -29,7 +29,7 @@ public class Manager : MonoBehaviour {
 			}
 		}
 
-		//player = GameObject.Find ("Player");
+		player = GameObject.Find ("Player");
 		//pc = player.GetComponent<PlayerController> ();
 		//previousy = (int) player.transform.position.y;
 	}
@@ -47,6 +47,14 @@ public class Manager : MonoBehaviour {
 //			}
 //			previousy = currenty;
 //		}
+
+		// if player is dead
+		if (player == null) {
+			// reset game when space is pressed
+			if (Input.GetKey(KeyCode.Space)) {
+				Application.LoadLevel ("title");
+			}
+		}
 	}
 
 	void LateUpdate() {
