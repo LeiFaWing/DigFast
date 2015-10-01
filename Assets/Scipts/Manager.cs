@@ -14,6 +14,7 @@ public class Manager : MonoBehaviour {
 	public GameObject block5;
 	public GameObject block6;
 	public GameObject block7;
+	public GameObject block8;
 
 	public float spacing;
 	GameObject player;
@@ -23,7 +24,7 @@ public class Manager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		GameObject[] blocks = {block1, block2, block3, block4, block5, block6, block7};
+		GameObject[] blocks = {block1, block2, block3, block4, block5, block6, block7, block8};
 
 		// create blocks
 		for (int i = -4; i < 5; i++) {
@@ -40,14 +41,22 @@ public class Manager : MonoBehaviour {
 
 					BlockController bc = blocks[num].GetComponent<BlockController>();
 
-					// if not gold block
-					if (!bc.isGold) {
-						if (bc.health * Random.Range(1, 5) <= 15) {
+					// if gold block
+					if (bc.isGold) {
+						// increase end range to make lower chances of gold spawning
+						if (bc.health * Random.Range(1, 350) < 15) {
 							created = true;
 						}
 					}
+					// if silt block
+					else if (bc.isSilt) {
+						if (bc.health * Random.Range(1, 350) < 15) {
+							created = true;
+						}
+					}
+					// all other blocks
 					else {
-						if (bc.health * Random.Range(1, 10) <= 10) {
+						if (bc.health * Random.Range(1, 50) <= 15) {
 							created = true;
 						}
 					}
