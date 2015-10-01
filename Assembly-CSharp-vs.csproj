@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scipts\Manager.cs" />
      <Compile Include="Assets\Scipts\PlayerController.cs" />
      <Compile Include="Assets\Scipts\TitleController.cs" />
+     <None Include="Assets\Texture Package\Texture Package\README.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

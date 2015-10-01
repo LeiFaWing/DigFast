@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour {
 			//fix player to grid, so you can't dig between blocks
 			//raycast to see which block is underneath the player
 			Vector3 raycastStartPos=transform.position;
-			raycastStartPos.y -= 0.4f; //lower the starting point into the buttomCollision digger detector
+			raycastStartPos.y -= 0.5f; //lower the starting point into the buttomCollision digger detector
 			//raycast downword and hit the nearest block.
 			RaycastHit2D hitInfo = Physics2D.Raycast(raycastStartPos, Vector3.down, 1.4f);
 			//get the x-pos of the block
