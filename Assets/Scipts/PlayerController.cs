@@ -11,7 +11,9 @@ public class PlayerController : MonoBehaviour {
 //	public float gridY;
 	public float leftWall;
 	public float rightWall;
+
 	public GUIText loseScreen;
+	public GUIText winScreen;
 
 	// Use this for initialization
 	void Start () {
@@ -71,6 +73,10 @@ public class PlayerController : MonoBehaviour {
 			direction = "neutral";
 		}
 
+		if (transform.position.y < -90) {
+			winScreen.enabled = true;
+			Manager.win = true;
+		}
  
 	}
 

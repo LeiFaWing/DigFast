@@ -30,6 +30,10 @@ public class GiantSpikeController : MonoBehaviour {
 		if (speed > maxSpeed) {
 			speed = maxSpeed;
 		}
+
+		if (Manager.win) {
+			speed = 0;
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {

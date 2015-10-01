@@ -6,6 +6,7 @@ public class Manager : MonoBehaviour {
 	public static int damage = 35;
 	public static int score = 0;
 	public static bool powerup = false;
+	public static bool win = false;
 
 	int previousScore;
 	public static int powerupTime = 100;
@@ -93,7 +94,7 @@ public class Manager : MonoBehaviour {
 	void Update () {
 
 		// if player is dead
-		if (player == null) {
+		if (player == null || win) {
 			// reset game when space is pressed
 			if (Input.GetKey(KeyCode.Space)) {
 				Application.LoadLevel ("title");
