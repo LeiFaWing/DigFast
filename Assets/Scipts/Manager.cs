@@ -4,6 +4,9 @@ using System.Collections;
 public class Manager : MonoBehaviour {
 
 	public static int damage = 35;
+	public static int score = 0;
+
+	int previousScore;
 
 	// add more blocks if necessary
 	// probably find a more efficient way to do this
@@ -15,6 +18,7 @@ public class Manager : MonoBehaviour {
 	public GameObject block6;
 	public GameObject block7;
 	public GameObject block8;
+	public GUIText scoreText;
 
 	public float spacing;
 	GameObject player;
@@ -24,6 +28,7 @@ public class Manager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		previousScore = score;
 		GameObject[] blocks = {block1, block2, block3, block4, block5, block6, block7, block8};
 
 		// create blocks
@@ -73,17 +78,6 @@ public class Manager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-//		int currenty = (int) player.transform.position.y;
-//		if (currenty < previousy) {
-//			for (int i = -4; i < 5; i++) {
-//				for (int j = currenty - 2; j > currenty - 12; j--) {
-//					Vector3 pos = new Vector3(i, j, 0) * spacing;
-//					Instantiate(block, pos, Quaternion.identity);
-//					Debug.Log(j);
-//				}
-//			}
-//			previousy = currenty;
-//		}
 
 		// if player is dead
 		if (player == null) {
@@ -92,6 +86,15 @@ public class Manager : MonoBehaviour {
 				Application.LoadLevel ("title");
 			}
 		}
+
+		if (score != previousScore) {
+			UpdateScore();
+		}
+	}
+
+	void UpdateScore() {
+		scoreText.text = "Score: " + score;
+		previousScore = score;
 	}
 
 	void LateUpdate() {

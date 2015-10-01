@@ -16,10 +16,12 @@ public class BlockController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (health <= 0) {
+			// drop powerup
 			if (initialHealth * Random.Range(1, 10) >= 50) {
 
 			}
 
+			Manager.score += (int) initialHealth;
 			Destroy (gameObject);
 		}
 	}
