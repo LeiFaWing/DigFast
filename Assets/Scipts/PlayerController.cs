@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour {
 			direction = "neutral";
 		}
 
+ 
 	}
 
 	void gameOver() {

@@ -6,6 +6,8 @@ public class BlockController : MonoBehaviour {
 	public double health = 5;
 	public bool isGold = false;
 	public bool isSilt = false;
+	public bool isGoldSupply = false;
+	public bool isMetal = false;
 	double initialHealth;
 
 	// Use this for initialization
@@ -19,6 +21,13 @@ public class BlockController : MonoBehaviour {
 			// drop powerup
 			if (initialHealth * Random.Range(1, 10) >= 50) {
 
+			}
+
+			if (isGold) {
+				Manager.score += 15;
+			}
+			else if (isGoldSupply) {
+				Manager.score += 30;
 			}
 
 			Manager.score += (int) initialHealth;

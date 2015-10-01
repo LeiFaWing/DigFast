@@ -18,6 +18,7 @@ public class Manager : MonoBehaviour {
 	public GameObject block6;
 	public GameObject block7;
 	public GameObject block8;
+	public GameObject block9;
 	public GUIText scoreText;
 
 	public float spacing;
@@ -29,7 +30,7 @@ public class Manager : MonoBehaviour {
 	void Start () {
 
 		previousScore = score;
-		GameObject[] blocks = {block1, block2, block3, block4, block5, block6, block7, block8};
+		GameObject[] blocks = {block1, block2, block3, block4, block5, block6, block7, block8, block9};
 
 		// create blocks
 		for (int i = -4; i < 5; i++) {
@@ -56,6 +57,12 @@ public class Manager : MonoBehaviour {
 					// if silt block
 					else if (bc.isSilt) {
 						if (bc.health * Random.Range(1, 350) < 15) {
+							created = true;
+						}
+					}
+					// metal blocks
+					else if (bc.isMetal) {
+						if (Random.Range(1, 700) < 5) {
 							created = true;
 						}
 					}
