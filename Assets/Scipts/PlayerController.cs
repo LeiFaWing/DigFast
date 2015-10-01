@@ -79,4 +79,16 @@ public class PlayerController : MonoBehaviour {
 		//Instantiate(loseScreen, pos, Quaternion.identity);
 		loseScreen.enabled = true;
 	}
+
+	void OnTriggerEnter2D(Collider2D col) {
+		if (col.gameObject.tag == "Powerup") {
+			if (Manager.powerup) {
+				Manager.powerupTime += 100;
+			}
+			else {
+				Manager.powerup = true;
+			}
+			Destroy(col.gameObject);
+		}
+	}
 }

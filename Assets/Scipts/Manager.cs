@@ -5,8 +5,11 @@ public class Manager : MonoBehaviour {
 
 	public static int damage = 35;
 	public static int score = 0;
+	public static bool powerup = false;
 
 	int previousScore;
+	public static int powerupTime = 100;
+	int initialDamage;
 
 	// add more blocks if necessary
 	// probably find a more efficient way to do this
@@ -19,7 +22,9 @@ public class Manager : MonoBehaviour {
 	public GameObject block7;
 	public GameObject block8;
 	public GameObject block9;
+
 	public GUIText scoreText;
+	public GUIText powerupText;
 
 	public float spacing;
 	GameObject player;
@@ -30,6 +35,7 @@ public class Manager : MonoBehaviour {
 	void Start () {
 
 		previousScore = score;
+		initialDamage = damage;
 		GameObject[] blocks = {block1, block2, block3, block4, block5, block6, block7, block8, block9};
 
 		// create blocks
@@ -96,6 +102,20 @@ public class Manager : MonoBehaviour {
 
 		if (score != previousScore) {
 			UpdateScore();
+		}
+
+		if (powerup) {
+			damage = 2 * initialDamage;
+			powerupText.enabled = true;
+			powerupText.text = "Powerup: " + powerupTime;
+			powerupTime--;
+		}
+
+		if (powerupTime <= 0) {
+			powerup = false;
+			powerupTime = 100;
+			damage = initialDamage;
+			powerupText.enabled = false;
 		}
 	}
 
