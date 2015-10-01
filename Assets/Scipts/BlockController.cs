@@ -4,6 +4,7 @@ using System.Collections;
 public class BlockController : MonoBehaviour {
 
 	public double health = 5;
+	public bool isGold = false;
 
 	// Use this for initialization
 	void Start () {

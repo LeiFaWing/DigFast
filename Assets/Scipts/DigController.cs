@@ -21,7 +21,7 @@ public class DigController : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D col) {
 		if (col.gameObject.tag == "Block") {
 			if (pc.direction == trigger) {
-				col.gameObject.SendMessage("applyDamage", 35.0*Time.deltaTime);
+				col.gameObject.SendMessage("applyDamage", Manager.damage*Time.deltaTime);
 			}
 		}
 	}
