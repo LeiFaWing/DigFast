@@ -14,6 +14,8 @@ public class TitleController : MonoBehaviour {
 	}
 
 	public void startGame(){
+		Manager.win = false;
+		Manager.score = 0;
 		Application.LoadLevel ("main");
 	}
 
