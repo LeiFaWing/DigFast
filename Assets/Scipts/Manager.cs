@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Manager : MonoBehaviour {
@@ -24,8 +25,11 @@ public class Manager : MonoBehaviour {
 	public GameObject block8;
 	public GameObject block9;
 
-	public GUIText scoreText;
-	public GUIText powerupText;
+	//public GUIText scoreText;
+	public Text powerupText;
+
+	public Text scoreText;
+
 
 	public float spacing;
 	GameObject player;
@@ -96,6 +100,7 @@ public class Manager : MonoBehaviour {
 		// if player is dead
 		if (player == null || win) {
 			// reset game when space is pressed
+			powerupTime = 0;
 			if (Input.GetKey(KeyCode.Space)) {
 				Application.LoadLevel ("title");
 			}

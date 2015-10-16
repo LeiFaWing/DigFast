@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
@@ -12,8 +13,8 @@ public class PlayerController : MonoBehaviour {
 	public float leftWall;
 	public float rightWall;
 
-	public GUIText loseScreen;
-	public GUIText winScreen;
+	public Text loseScreen;
+	public Text winScreen;
 
 	// Use this for initialization
 	void Start () {
